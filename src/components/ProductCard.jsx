@@ -1,9 +1,8 @@
 import { useState } from "react";
 export default function ProductCard({ product }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [itemsInCart, setItemsInCart] = useState(0);
+  const [productCount, setProductCount] = useState(0);
   const [showDescription, setShowDescription] = useState(false);
-
   
 
   const handleNextButtonClick = () => {
@@ -17,9 +16,11 @@ export default function ProductCard({ product }) {
       prevIndex === 0 ? product.imageUrls.length - 1 : prevIndex - 1
     );
   };
+
   const toggleDescription = () => {
     setShowDescription(prevState => !prevState);
   };
+
   const handleAddToCartClick = () => {
     setProductCount(prevCount => prevCount + 1);
     alert('You have ${productCount + 1} items added to your cart');
